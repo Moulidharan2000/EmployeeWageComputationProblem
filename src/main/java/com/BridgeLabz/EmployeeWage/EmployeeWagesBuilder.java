@@ -14,16 +14,20 @@ public class EmployeeWagesBuilder {
 		Random random = new Random();
 		int randomNum = random.nextInt(3);
 		
-		if(FullTime == randomNum) {
-			int DailyWage = WageperHr * WorkingHr;
-			System.out.println("Employee is Present");
-			System.out.println("Daily Employee Wage is : "+DailyWage);
+		switch(randomNum) {
+			case 1:
+				int DailyWage = WageperHr * WorkingHr;
+				System.out.println("Employee is Present");
+				System.out.println("Daily Employee Wage is : "+DailyWage);
+				break;
+			
+			case 2 :
+				int PartTimeWage = PartTimeWorkingHr * WageperHr;
+				System.out.println("Part Time Employee Wage is : "+PartTimeWage);
+				break;
+			
+			default : System.out.println("Employee is Absent");
+				break;
 		}
-		else if(PartTimeEmployee == randomNum) {
-			int PartTimeWage = PartTimeWorkingHr * WageperHr;
-			System.out.println("Part Time Employee Wage is : "+PartTimeWage);
-		}
-		else
-			System.out.println("Employee is Absent");
 	}
 }
