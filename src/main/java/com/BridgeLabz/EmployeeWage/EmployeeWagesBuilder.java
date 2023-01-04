@@ -3,36 +3,43 @@ package com.BridgeLabz.EmployeeWage;
 import java.util.Random;
 
 public class EmployeeWagesBuilder {
-
+	
+	public static final int FullTime = 1;
+	public static final int PartTime = 2;
+	
 	public static void main(String[] args) {
-		int FullTime = 1;
-		int PartTimeEmployee = 2;
+		
 		int WageperHr = 20;
-		int WorkingHr = 8;
-		int PartTimeWorkingHr = 4;
-		int WorkingDays = 20;
-		
+		int WorkingHr = 0;
+		int NoofWorkingDays = 20;
+		int TotalEmpWage = 0;
+		int TotalHrsinMonth = 100;
+		int TotalEmpHrs = 0;
+		int TotalWorkingDays = 0;
 		Random random = new Random();
-		int randomNum = random.nextInt(3);
 		
-		switch(randomNum) {
-			case 1:
-				int DailyWage = WageperHr * WorkingHr;
-				int WageforMonth = WorkingDays * DailyWage;
-				System.out.println("Employee is Present");
-				System.out.println("Daily Employee Wage is : "+DailyWage);
-				System.out.println("Employee Wage for Month is : "+WageforMonth);
-				break;
+		while (TotalEmpHrs <= TotalHrsinMonth && TotalWorkingDays < NoofWorkingDays ) {
 			
-			case 2 :
-				int PartTimeWage = PartTimeWorkingHr * WageperHr;
-				int Wageformonth = WorkingDays * PartTimeWage;
-				System.out.println("Part Time Employee Wage is : "+PartTimeWage);
-				System.out.println("Monthly Wage for Part Time Employee : "+Wageformonth);
-				break;
+			TotalWorkingDays ++;
+			int EmployeeCheck = random.nextInt(3);
+		
+			switch(EmployeeCheck) {
+				case FullTime:
+					WorkingHr = 8;
+					break;
 			
-			default : System.out.println("Employee is Absent");
-				break;
+				case PartTime :
+					WorkingHr = 4;
+					break;
+			
+				default : 
+					WorkingHr = 0;
+			} 
+			TotalEmpHrs += WorkingHr;
+			System.out.println("Day : "+TotalWorkingDays+" , Working Hour : "+WorkingHr);
 		}
+		TotalEmpWage = TotalEmpHrs * WageperHr;
+		System.out.println("Total Employee Working Hours : "+TotalEmpHrs);
+		System.out.println("Total Employee Wage : "+TotalEmpWage);
 	}
 }
