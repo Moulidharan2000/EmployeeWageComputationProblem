@@ -24,7 +24,7 @@ public class EmployeeWagesBuilder {
 			System.out.println("Employee is Present");
 			System.out.println("Daily Employee Wage is : "+DailyWage);
 
-    while (TotalEmpHrs <= TotalHrsinMonth && TotalWorkingDays < NoofWorkingDays ) {
+    		while (TotalEmpHrs <= TotalHrsinMonth && TotalWorkingDays < NoofWorkingDays ) {
 			
 			TotalWorkingDays ++;
 			int EmployeeCheck = random.nextInt(3);
