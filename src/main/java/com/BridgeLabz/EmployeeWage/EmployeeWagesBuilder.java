@@ -1,4 +1,4 @@
-package com.BridgeLabz.EmployeeWage;
+package com.bridgelabz.employeewage;
 
 import java.util.Random;
 
