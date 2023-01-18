@@ -7,7 +7,7 @@ public class EmployeeWagesBuilder {
 	public static final int FULL_TIME = 1;
 	public static final int PART_TIME = 2;
 	
-	static void TotalWages(int WageperHr, int WorkingHr, int TotalEmpWage, int TotalEmpHrs, int TotalHrsinMonth,
+	static void TotalWage(int WageperHr, int WorkingHr, int TotalEmpWage, int TotalEmpHrs, int TotalHrsinMonth,
 						   int TotalWorkingDays, int NoOfWorkingDays ) {
 		
 		Random random = new Random();
@@ -46,6 +46,6 @@ public class EmployeeWagesBuilder {
 		int TotalEmpHrs = 0;
 		int TotalWorkingDays = 0;
 		
-		TotalWages(WageperHr, WorkingHr, TotalEmpWage, TotalEmpHrs, TotalHrsinMonth, TotalWorkingDays, NoOfWorkingDays);
+		TotalWage(WageperHr, WorkingHr, TotalEmpWage, TotalEmpHrs, TotalHrsinMonth, TotalWorkingDays, NoOfWorkingDays);
 	}
 }
