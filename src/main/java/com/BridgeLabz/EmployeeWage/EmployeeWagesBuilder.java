@@ -1,11 +1,11 @@
-package com.bridgeLabz.employeewage;
+package com.bridgelabz.employeewage;
 
 import java.util.Random;
 
 public class EmployeeWagesBuilder {
 	
-	public static final int FullTime = 1;
-	public static final int PartTime = 2;
+	public static final int FULL_TIME = 1;
+	public static final int PART_TIME = 2;
 	
 	static void TotalWages(int WageperHr, int WorkingHr, int TotalEmpWage, int TotalEmpHrs, int TotalHrsinMonth,
 						   int TotalWorkingDays, int NoOfWorkingDays ) {
@@ -17,11 +17,11 @@ public class EmployeeWagesBuilder {
 		int EmployeeCheck = random.nextInt(3);
 		
 		switch(EmployeeCheck) {
-			case FullTime:
+			case FULL_TIME:
 				WorkingHr = 8;
 				break;
 			
-			case PartTime :
+			case PART_TIME :
 				WorkingHr = 4;
 				break;
 		
