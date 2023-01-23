@@ -6,46 +6,57 @@ public class EmployeeWagesBuilder {
 	
 	public static final int FULL_TIME = 1;
 	public static final int PART_TIME = 2;
+	int WageperHr;
+	int NoOfWorkingDays;
+	int TotalHrsinMonth;
+	int WorkingHr;
+	int TotalEmpWage;
+	int TotalEmpHrs;
+	int TotalWorkingDays;
+	String company;
 	
-	static void TotalWage(int WageperHr, int WorkingHr, int TotalEmpWage, int TotalEmpHrs, int TotalHrsinMonth,
-						   int TotalWorkingDays, int NoOfWorkingDays ) {
+	public EmployeeWagesBuilder(int WageperHr, int NoOfWorkingDays, int TotalHrsinMonth, String company) {
+		
+		this.WageperHr = WageperHr;
+		this.NoOfWorkingDays = NoOfWorkingDays;
+		this.TotalHrsinMonth = TotalHrsinMonth;
+		this.company = company;
+	}
+
+	void CompaniesTotalWage() {
 		
 		Random random = new Random();
-		while (TotalEmpHrs <= TotalHrsinMonth && TotalWorkingDays < NoOfWorkingDays ) {
+		for(int day=1; day<=NoOfWorkingDays; day++) {
 			
-		TotalWorkingDays ++;
-		int EmployeeCheck = random.nextInt(3);
-		
-		switch(EmployeeCheck) {
-			case FULL_TIME:
-				WorkingHr = 8;
-				break;
+			int EmployeeCheck = random.nextInt(3);
+			switch(EmployeeCheck) {
+				case FULL_TIME:
+					WorkingHr = 8;
+					break;
 			
-			case PART_TIME :
-				WorkingHr = 4;
-				break;
+				case PART_TIME :
+					WorkingHr = 4;
+					break;
 		
-			default : 
-				WorkingHr = 0;
-			} 
-		TotalEmpHrs += WorkingHr;
-		System.out.println("Day : "+TotalWorkingDays+" , Working Hour : "+WorkingHr);
+				default : 
+					WorkingHr = 0;
+			}
+			TotalEmpWage = WorkingHr*WageperHr;
+			TotalEmpHrs += WorkingHr;
 		}
+		System.out.println("\nEmployee's Wage Computation in "+company+" :\n");
+		System.out.println("Employee's Working Hours for Month : "+TotalEmpHrs);
 		TotalEmpWage = TotalEmpHrs * WageperHr;
-		System.out.println("Total Employee Working Hours : "+TotalEmpHrs);
-		System.out.println("Total Employee Wage : "+TotalEmpWage);
+		System.out.println("Employee's Wages for Month : "+TotalEmpWage);
 	}
 	
 	public static void main(String[] args) {
 		
-		int WageperHr = 20;
-		int WorkingHr = 0;
-		int NoOfWorkingDays = 20;
-		int TotalEmpWage = 0;
-		int TotalHrsinMonth = 100;
-		int TotalEmpHrs = 0;
-		int TotalWorkingDays = 0;
-		
-		TotalWage(WageperHr, WorkingHr, TotalEmpWage, TotalEmpHrs, TotalHrsinMonth, TotalWorkingDays, NoOfWorkingDays);
+		EmployeeWagesBuilder company1 = new EmployeeWagesBuilder(20, 25, 100, "Google");
+		company1.CompaniesTotalWage();
+		EmployeeWagesBuilder company2 = new EmployeeWagesBuilder(25, 20, 150, "Amazon");
+		company2.CompaniesTotalWage();
+		EmployeeWagesBuilder company3 = new EmployeeWagesBuilder(30, 30, 200, "Tata");
+		company3.CompaniesTotalWage();
 	}
 }
