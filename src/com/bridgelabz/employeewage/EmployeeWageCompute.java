@@ -1,21 +1,24 @@
 package com.bridgelabz.employeewage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class EmployeeWageCompute implements IEmployeeWage {
 
 	   int noOfCompanies, index; 
-	    
-	    ArrayList<CompanyEmpWage> companies; 
+	   ArrayList<CompanyEmpWage> companies;
+	   HashMap<String, Integer> fullDailyWage;
 	    
 	public EmployeeWageCompute(){
 	      companies=new ArrayList<>();
+	      fullDailyWage = new HashMap<>();
 	  }
 
 	public void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs) {
 	    	CompanyEmpWage company = new CompanyEmpWage(companyName, wagePerHr, maxWorkingDays, maxWorkingHrs);
 	        companies.add(company);
+	        fullDailyWage.put(companyName,0);
 	    }
   
     int companyWage(CompanyEmpWage company) {
@@ -26,8 +29,11 @@ public class EmployeeWageCompute implements IEmployeeWage {
             int empType = generateEmployeeType(); 
             workingHrs = getWorkingHrs(empType); 
             int wage = workingHrs * company.WAGE_PER_HR;
+            fullDailyWage.put(CompanyEmpWage.COMPANY_NAME, wage);
             totalWage += wage;
             System.out.print("\n Day "+day+": Working hrs ="+workingHrs+", Total Wage ="+ wage+", Total working hour =" +totalWorkingHrs +"\n");
+            System.out.println();
+            printotalwage();
         }
         return totalWage;
     }
@@ -53,6 +59,11 @@ public class EmployeeWageCompute implements IEmployeeWage {
             System.out.println(company); 
         }
     }
+    public  void printotalwage(){
+        System.out.println("Companies daily wage details for one employee : ");
+        for (String companyName : fullDailyWage.keySet()) 
+        	System.out.println(companyName + " company daily wage per emp : " + fullDailyWage.get(companyName)); 
+        }
     
 	public static void main(String[] args) {
 		System.out.println("Welcome to Employee Wage Computation. \n");

@@ -6,7 +6,7 @@ interface IEmployeeWage {
 }
 public class CompanyEmpWage {
 
-	String COMPANY_NAME = "";
+	static String COMPANY_NAME = "";
     int WAGE_PER_HR = 0;
     int MAX_WORKING_DAYS = 0;
     int MAX_WORKING_HRS = 0;
