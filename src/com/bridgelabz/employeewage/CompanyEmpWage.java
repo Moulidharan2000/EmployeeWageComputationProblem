@@ -3,15 +3,16 @@ package com.bridgelabz.employeewage;
 interface IEmployeeWage {
     public void addCompany(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs);
     public void companyWage();
+    public  void printotalwage();
 }
 public class CompanyEmpWage {
 
-	static String COMPANY_NAME = "";
-    int WAGE_PER_HR = 0;
-    int MAX_WORKING_DAYS = 0;
-    int MAX_WORKING_HRS = 0;
+    final String COMPANY_NAME;
+    final int WAGE_PER_HR;
+    final int MAX_WORKING_DAYS;
+    final int MAX_WORKING_HRS;
     int totalEmpWage;
-
+    
     public  CompanyEmpWage(String companyName, int wagePerHr, int maxWorkingDays, int maxWorkingHrs) {
         COMPANY_NAME = companyName;
         WAGE_PER_HR = wagePerHr;
@@ -30,4 +31,5 @@ public class CompanyEmpWage {
         System.out.println("Maximum working hours:" + MAX_WORKING_HRS);
         return "Total wage in a month for " + COMPANY_NAME + " Company is " + totalEmpWage + "\n";
 	}
+
 }
