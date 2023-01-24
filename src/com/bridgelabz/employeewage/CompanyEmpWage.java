@@ -19,7 +19,9 @@ public class CompanyEmpWage {
         MAX_WORKING_HRS = maxWorkingHrs;
         totalEmpWage = 0;
     }
-    
+    void setTotalEmployeeWage(int totalEmpWage) {
+        this.totalEmpWage = totalEmpWage;
+    }
     public String toString() {
         System.out.println("                                                             ");
         System.out.println("* Total Information of " + COMPANY_NAME + " employee");
